@@ -14,6 +14,8 @@ Native tracker module decoding for HashLink, with optional Heaps integration.
 - `it`
 - `s3m`
 
+more will be later...
+
 ## Plain HashLink usage
 
 ```haxe
