@@ -20,7 +20,7 @@ class Boot {
 
 	static function apply() {
 		#if heaps
-		for (ext in Formats.resourceExtensions)
+		for (ext in TrackerFormat.resourceExtensions)
 			Config.addExtension(ext, "hxd.res.Sound");
 		#end
 		Compiler.addGlobalMetadata("hxd.res.Sound", "@:build(openmpt.Macro.buildSound())", false, true, false);

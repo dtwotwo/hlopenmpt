@@ -18,7 +18,7 @@ class Macro {
 					args: [{name: "path", type: macro :String}],
 					ret: macro :Bool,
 					expr: macro {
-						return openmpt.Formats.isTrackerPath(path);
+						return openmpt.TrackerFormat.isTrackerPath(path);
 					}
 				}),
 				pos: Context.currentPos()

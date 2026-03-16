@@ -11,7 +11,7 @@ typedef FixtureDecode = {
 }
 
 class TestSupport {
-	public static final supportedExtensions = openmpt.Formats.resourceExtensions;
+	public static final supportedExtensions = openmpt.TrackerFormat.resourceExtensions;
 	public static final fixtures = loadFixtures();
 
 	static function loadFixtures():Array<String> {
@@ -23,7 +23,7 @@ class TestSupport {
 			if (FileSystem.isDirectory(path))
 				continue;
 			final ext = Path.extension(name).toLowerCase();
-			if (supportedExtensions.indexOf(ext) != -1)
+			if (openmpt.TrackerFormat.hasExtension(ext))
 				result.push(path);
 		}
 
