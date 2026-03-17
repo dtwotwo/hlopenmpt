@@ -7,7 +7,16 @@ import haxe.macro.Context;
 import hxd.res.Config;
 #end
 
+/**
+	Macro bootstrap for Heaps tracker integration.
+
+	Call `openmpt.Boot.setup()` from your build macros to register tracker
+	resources as `hxd.res.Sound` and install the Heaps sound patch.
+**/
 class Boot {
+	/**
+		Installs the Heaps resource and macro hooks for tracker support.
+	**/
 	public static function setup() {
 		#if (haxe_ver >= 5)
 		Context.onAfterInitMacros(() -> apply());
@@ -27,5 +36,9 @@ class Boot {
 	}
 }
 #else
+
+/**
+	Runtime placeholder for non-macro builds.
+**/
 class Boot {}
 #end

@@ -20,18 +20,29 @@ more will be later...
 
 ```haxe
 final bytes = sys.io.File.getBytes("music.it");
-final decoded = openmpt.OpenMPT.decodeToPCMFloat(bytes);
+final decoded = openmpt.OpenMPT.decode(bytes, {
+	format: PCMFloat,
+});
 
 if (decoded == null)
 	throw openmpt.OpenMPT.describeLastError();
 ```
 
-There is also `decodeToPCM16()` if you want 16-bit PCM.
+Or load directly from file:
+
+```haxe
+final decoded = openmpt.OpenMPT.decodeFromFile("music.it", {
+	format: PCM16,
+});
+```
 
 If you need a longer loop-aware preview buffer, use:
 
 ```haxe
-final looped = openmpt.OpenMPT.decodeLoopToPCMFloat(bytes, 30);
+final looped = openmpt.OpenMPT.decode(bytes, {
+	format: PCMFloat,
+	loopSeconds: 30,
+});
 ```
 
 ## Heaps usage
@@ -44,6 +55,14 @@ final channel = sound.play();
 ```
 
 This works for tracker resources such as `.it`, `.xm`, `.mod`, and `.s3m`.
+
+If you want to create Heaps data manually, there are helpers for that too:
+
+```haxe
+final data = openmpt.OpenMPT.decodeToHeapsDataFromFile("music.it", 20);
+```
+
+That returns `hxd.snd.OpenMPTData`, optionally using a finite loop-aware buffer when `loopSeconds` is provided.
 
 ## Build
 

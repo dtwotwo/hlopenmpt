@@ -6,7 +6,16 @@ import haxe.macro.Expr.Field;
 
 using Lambda;
 
+/**
+	Build macro that extends `hxd.res.Sound` with tracker-aware behavior.
+
+	It teaches Heaps sound resources to recognize module files and decode
+	them through `hxd.snd.OpenMPTData`.
+**/
 class Macro {
+	/**
+		Patches `hxd.res.Sound` during compilation.
+	**/
 	public static macro function buildSound():Array<Field> {
 		final fields = Context.getBuildFields();
 
