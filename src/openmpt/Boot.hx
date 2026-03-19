@@ -32,7 +32,7 @@ class Boot {
 		for (ext in TrackerFormat.resourceExtensions)
 			Config.addExtension(ext, "hxd.res.Sound");
 		#end
-		Compiler.addGlobalMetadata("hxd.res.Sound", "@:build(openmpt.Macro.buildSound())", false, true, false);
+		Compiler.addMetadata("@:build(openmpt.Macro.buildSound())", "hxd.res.Sound");
 	}
 }
 #else
