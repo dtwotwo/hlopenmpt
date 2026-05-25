@@ -6,8 +6,8 @@ import sys.FileSystem;
 typedef FixtureDecode = {
 	path:String,
 	bytes:Bytes,
-	floatDecoded:openmpt.DecodedAudio,
-	pcm16Decoded:openmpt.DecodedAudio,
+	floatDecoded:openmpt.OpenMPT.DecodedAudio,
+	pcm16Decoded:openmpt.OpenMPT.DecodedAudio,
 }
 
 class TestSupport {
@@ -70,7 +70,7 @@ class TestSupport {
 		};
 	}
 
-	public static function assertDecodedAudio(decoded:openmpt.DecodedAudio, label:String, floatFormat:Bool):Void {
+	public static function assertDecodedAudio(decoded:openmpt.OpenMPT.DecodedAudio, label:String, floatFormat:Bool):Void {
 		assert(decoded.channels > 0, label + ": invalid channel count");
 		assert(decoded.sampleRate > 0, label + ": invalid sample rate");
 		assert(decoded.samples > 0, label + ": invalid sample count");

@@ -1,8 +1,7 @@
 {
 	"name": "hlopenmpt",
 	"license": "MIT",
-	"releasenote": "",
-	"contributors": ["D_TWO_TWO"],
+	"contributors": ["dtwotwo"],
 	"version": "1.0.0",
-	"classPath": "src"
+	"classPath": "."
 }
